@@ -14,12 +14,18 @@ import AuthProvider from './providers/AuthProvider';
 import Orders from './components/Orders';
 import PrivateRoute from './routes/PrivateRoute';
 import Profile from './components/Profile';
+import NotFound from './components/NotFound';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
+      {
+      
+        path: '*',
+        element: <NotFound />,
+      },
       {
         path: '/',
         element: <Home></Home>
@@ -40,6 +46,7 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <PrivateRoute><Profile></Profile></PrivateRoute>
       }
+      
     ]
   },
 ]);
